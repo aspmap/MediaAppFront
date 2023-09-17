@@ -1,0 +1,2 @@
+# MediaAppFront
+Фрон-часть MediaApp
