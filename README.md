@@ -6,5 +6,5 @@
 1. ReactJS
 
 :computer: **Разворачивание и запуск проекта:**
-1. Клонируем проект: git clone https://github.com/aspmap/MediaApp.git
+1. Клонируем проект: git clone https://github.com/aspmap/MediaAppFront.git
 2. Запускаем приложение
