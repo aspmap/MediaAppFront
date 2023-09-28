@@ -13,7 +13,29 @@ export default class PostService {
     }
 
     static async getCommentsByPostId(id) {
-        const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
+        const response = await axios.get('http://localhost:8080/api/person/' + id)
         return response;
     }
+
+    static async getProjectsByPersonId(id) {
+        const response = await axios.get('http://localhost:8080/api/project/person/' + id)
+        return response;
+    }
+
+    static async getWorksByProjectId(id) {
+        const response = await axios.get('http://localhost:8080/api/work/project/' + id)
+        return response;
+    }
+
+    static async getMediaByWorkId(id) {
+        const response = await axios.get('http://localhost:8080/api/mediainfo/work/' + id)
+        return response;
+    }
+
+    static async getWorksByWorkId(id) {
+        const response = await axios.get('http://localhost:8080/api/work/' + id)
+        return response;
+    }
+
+
 }

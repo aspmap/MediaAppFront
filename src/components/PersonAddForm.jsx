@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import MyInput from "./UI/input/MyInput";
 import MyButton from "./UI/button/MyButton";
 
-const PostForm = ({create}) => {
+const PersonAddForm = ({create}) => {
     const [post, setPost] = useState({title: '', body: ''})
 
     const addNewPost = (e) => {
@@ -20,17 +20,17 @@ const PostForm = ({create}) => {
                 value={post.title}
                 onChange={e => setPost({...post, title: e.target.value})}
                 type="text"
-                placeholder="Название поста"
+                placeholder="Ф.И.О."
             />
             <MyInput
                 value={post.body}
                 onChange={e => setPost({...post, body: e.target.value})}
                 type="text"
-                placeholder="Описание поста"
+                placeholder="Описание"
             />
-            <MyButton onClick={addNewPost}>Создать пост</MyButton>
+            <MyButton onClick={addNewPost}>Создать персону</MyButton>
         </form>
     );
 };
 
-export default PostForm;
+export default PersonAddForm;

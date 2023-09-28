@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Segoe UI";
 }
 
 #root {
@@ -17,7 +18,7 @@
 .post {
     display: flex;
     padding: 15px;
-    border: 2px solid teal;
+    border: 1px solid #91bbff;
     margin-top: 15px;
     justify-content: space-between;
     align-items: center;

@@ -2,7 +2,7 @@ import React from 'react';
 import MyInput from "./UI/input/MyInput";
 import MySelect from "./UI/select/MySelect";
 
-const PostFilter = ({filter, setFilter}) => {
+const PersonsFilter = ({filter, setFilter}) => {
     return (
         <div>
             <MyInput
@@ -23,4 +23,4 @@ const PostFilter = ({filter, setFilter}) => {
     );
 };
 
-export default PostFilter;
+export default PersonsFilter;
