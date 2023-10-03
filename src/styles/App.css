@@ -15,7 +15,7 @@
     width: 800px;
 }
 
-.post {
+.person {
     display: flex;
     padding: 15px;
     border: 1px solid #91bbff;
@@ -24,17 +24,17 @@
     align-items: center;
 }
 
-.post-enter {
+.person-enter {
     opacity: 0;
 }
-.post-enter-active {
+.person-enter-active {
     opacity: 1;
     transition: opacity 500ms ease-in;
 }
-.post-exit {
+.person-exit {
     opacity: 1;
 }
-.post-exit-active {
+.person-exit-active {
     opacity: 0;
     transition: opacity 500ms ease-in;
 }
@@ -52,6 +52,6 @@
     margin-left: auto;
 }
 
-.post__btns {
+.person__btns {
     display: flex;
 }

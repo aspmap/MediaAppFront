@@ -3,7 +3,6 @@ import Persons from "../pages/Persons";
 import PersonInfo from "../pages/PersonInfo";
 import {Navigate} from "react-router-dom";
 import Error from "../pages/Error";
-import ProjectIdPage from "../pages/ProjectIdPage";
 import Projects from "../pages/Projects";
 import Works from "../pages/Works";
 import MediaInfo from "../pages/MediaInfo";

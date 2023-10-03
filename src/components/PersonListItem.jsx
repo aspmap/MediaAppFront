@@ -5,19 +5,18 @@ import {useNavigate} from "react-router-dom"
 const PersonListItem = (props) => {
 
     const router = useNavigate();
-    console.log(router)
 
     return (
-        <div className="post">
-            <div className="post__content">
-                <strong>{props.post.lastname} {props.post.firstname} {props.post.patronymic}</strong>
+        <div className="person">
+            <div className="person__content">
+                <strong>{props.person.lastname} {props.person.firstname} {props.person.patronymic}</strong>
                 <div>
-                    {props.post.info}
+                    {props.person.info}
                 </div>
             </div>
-            <div className="post__btns">
-                <MyButton onClick={() => router(`/personinfo/${props.post.personId}`)}>Просмотр персоны</MyButton>
-                <MyButton onClick={() => props.remove(props.post)}>Удалить</MyButton>
+            <div className="person__btns">
+                <MyButton onClick={() => router(`/personinfo/${props.person.personId}`)}>Просмотр персоны</MyButton>
+                <MyButton onClick={() => props.remove(props.person)}>Удалить</MyButton>
             </div>
         </div>
     );

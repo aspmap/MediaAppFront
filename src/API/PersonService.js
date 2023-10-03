@@ -1,13 +1,13 @@
 import axios from "axios";
 
-export default class PostService {
-    static async getAll() {
+export default class PersonService {
+    static async getAllPersons() {
         const response = await axios.get('http://localhost:8080/api/persons')
         //https://jsonplaceholder.typicode.com/posts
         return response.data
     }
 
-    static async getById(id) {
+    static async getPersonById(id) {
         const response = await axios.get('http://localhost:8080/api/person/' + id)
         return response;
     }

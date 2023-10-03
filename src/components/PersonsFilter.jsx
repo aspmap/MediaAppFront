@@ -15,8 +15,8 @@ const PersonsFilter = ({filter, setFilter}) => {
                 onChange={selectedSort => setFilter({...filter, sort: selectedSort})}
                 defaultValue="Сортировка"
                 options={[
-                    {value: 'title', name: 'По названию'},
-                    {value: 'body', name: 'По описанию'},
+                    {value: 'firstname', name: 'По имени'},
+                    {value: 'lastname', name: 'По фамилии'},
                 ]}
             />
         </div>

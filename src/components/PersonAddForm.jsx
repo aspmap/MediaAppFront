@@ -3,32 +3,32 @@ import MyInput from "./UI/input/MyInput";
 import MyButton from "./UI/button/MyButton";
 
 const PersonAddForm = ({create}) => {
-    const [post, setPost] = useState({title: '', body: ''})
+    const [person, setPerson] = useState({lastname: '', info: ''})
 
-    const addNewPost = (e) => {
+    const addNewPerson = (e) => {
         e.preventDefault()
-        const newPost = {
-            ...post, id: Date.now()
+        const newPerson = {
+            ...person, id: Date.now()
         }
-        create(newPost)
-        setPost({title: '', body: ''})
+        create(newPerson)
+        setPerson({lastname: '', info: ''})
     }
 
     return (
         <form>
             <MyInput
-                value={post.title}
-                onChange={e => setPost({...post, title: e.target.value})}
+                value={person.lastname}
+                onChange={e => setPerson({...person, lastname: e.target.value})}
                 type="text"
-                placeholder="Ф.И.О."
+                placeholder="Фамилия"
             />
             <MyInput
-                value={post.body}
-                onChange={e => setPost({...post, body: e.target.value})}
+                value={person.info}
+                onChange={e => setPerson({...person, info: e.target.value})}
                 type="text"
-                placeholder="Описание"
+                placeholder="Информация о персоне"
             />
-            <MyButton onClick={addNewPost}>Создать персону</MyButton>
+            <MyButton onClick={addNewPerson}>Создать персону</MyButton>
         </form>
     );
 };

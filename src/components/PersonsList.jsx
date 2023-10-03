@@ -2,9 +2,9 @@ import React from 'react';
 import PersonListItem from "./PersonListItem";
 import {TransitionGroup, CSSTransition} from "react-transition-group";
 
-const PersonsList = ({posts, title, remove}) => {
+const PersonsList = ({persons, title, remove}) => {
 
-    if (!posts.length) {
+    if (!persons.length) {
         return (
             <h1 style={{textAlign: 'center'}}>
                 Записи не найдены!
@@ -18,13 +18,13 @@ const PersonsList = ({posts, title, remove}) => {
                 {title}
             </h2>
             <TransitionGroup>
-                {posts.map((post, index) =>
+                {persons.map((person, index) =>
                     <CSSTransition
-                        key={post.id}
+                        key={person.id}
                         timeout={500}
-                        classNames="post"
+                        classNames="person"
                     >
-                        <PersonListItem remove={remove} number={index + 1} post={post} />
+                        <PersonListItem remove={remove} number={index + 1} person={person} />
                     </CSSTransition>
                 )}
             </TransitionGroup>
