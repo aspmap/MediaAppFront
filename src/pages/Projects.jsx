@@ -45,7 +45,7 @@ const Projects = (props, persons) => {
                             <p><b>E-mail:</b> {project.email}</p>
                             <p><b>Телефон:</b> {project.phone}</p>
                             <p><b>Фото:</b> {project.photo}</p>
-                            <p><b>Логотип:</b> {project.logo}</p>
+                            <p><b>Логотип:</b> <img src={`http://localhost:8080/${project.logo}`} style={{width: 100}} /></p>
                             <div className="person">
                                 <div className="person__btns">
                                     <MyButton onClick={() => router(`/works/${project.projectId}`)}>Просмотр

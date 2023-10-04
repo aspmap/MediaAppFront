@@ -28,9 +28,11 @@ const Works = (props) => {
                     <h2>Работы</h2>
                     {works.map(work =>
                         <div key={work.workId} style={{marginTop: 15}}>
-                            <p><b>Фото:</b> {work.photo}</p>
-                            <p><b>Название работы:</b> {work.title}</p>
-                            <p><b>Оригинальное название работы:</b> {work.originalTitle}</p>
+                            <p>
+                                <img src={`http://localhost:8080/${work.photo}`} style={{width: 100}} />
+                            </p>
+                            <p><b>Название:</b> {work.title}</p>
+                            <p><b>Оригинальное название:</b> {work.originalTitle}</p>
                             <p><b>Дата релиза:</b> {work.releaseDate}</p>
                             <div className="person">
                                 <div className="person__btns">

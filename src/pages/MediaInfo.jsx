@@ -3,6 +3,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useFetching} from "../hooks/useFetching";
 import Loader from "../components/UI/loader/Loader";
 import PersonService from "../API/PersonService";
+import PersonsList from "../components/PersonsList";
 
 const MediaInfo = () => {
     const params = useParams()
@@ -32,12 +33,21 @@ const MediaInfo = () => {
                     <br/>
                     <h3>{work.title} (дата релиза {work.releaseDate})</h3>
                     <br/>
+                    <img src={`http://localhost:8080/${work.photo}`} style={{width: 300}} />
                     <h4>Треклист</h4>
                     {medias.map(media =>
                         <div key={media.mediaId} style={{marginTop: 15}}>
-                            <p><b>{media.songNumber}. {media.title} [{media.version}] [{media.duration}]</b>
-                                <sub> {media.releaseDate}, {media.recordingDate}, {media.style}, {media.versionTrack}</sub>
-                            </p>
+                            <div><b>{media.songNumber}. {media.title}
+
+                                {media.version === "-"
+                                ? " "
+                                : " [" + media.version + "] "}
+                                [{media.duration}]</b>
+                                <div style={{fontSize: "smaller"}}> дата релиза: {media.releaseDate}, дата записи: {media.recordingDate}, стиль: {media.style} {media.version === "-"
+                                    ? " "
+                                    : ", версия трека: " + media.version + " "}</div>
+
+                            </div>
                         </div>
                     )}
                     <br/>
