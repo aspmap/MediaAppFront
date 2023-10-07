@@ -37,5 +37,10 @@ export default class PersonService {
         return response;
     }
 
+    static async getMediaInfoById(id) {
+        const response = await axios.get('http://localhost:8080/api/mediainfo/' + id)
+        return response;
+    }
+
 
 }

@@ -6,6 +6,7 @@ import Error from "../pages/Error";
 import Projects from "../pages/Projects";
 import Works from "../pages/Works";
 import MediaInfo from "../pages/MediaInfo";
+import MediaInfoDetail from "../pages/MediaInfoDetail";
 
 export const routes = [
     {path: "/about", element: <About/>},
@@ -14,6 +15,7 @@ export const routes = [
     {path: "/projects/:personId", element: <Projects/>},
     {path: "/works/:projectId", element: <Works/>},
     {path: "/mediainfo/:workId", element: <MediaInfo/>},
+    {path: "/mediainfo/detail/:mediaId", element: <MediaInfoDetail/>},
     {path: "/error", element: <Error/>},
     {path: "/", element: <Navigate replace to='/persons' />},
     {path: "/*", element: <Navigate replace to='/error' />},

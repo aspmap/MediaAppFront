@@ -4,11 +4,13 @@ import {useFetching} from "../hooks/useFetching";
 import Loader from "../components/UI/loader/Loader";
 import PersonService from "../API/PersonService";
 import PersonsList from "../components/PersonsList";
+import MyButton from "../components/UI/button/MyButton";
 
 const MediaInfo = () => {
     const params = useParams()
     const [medias, setMedia] = useState([]);
     const [work, setWork] = useState([]);
+    const router = useNavigate();
 
     const [fetchMedia, isMediaLoading] = useFetching(async (workId) => {
         const response = await PersonService.getMediaByWorkId(workId)
@@ -47,6 +49,11 @@ const MediaInfo = () => {
                                     ? " "
                                     : ", версия трека: " + media.version + " "}</div>
 
+                            </div>
+                            <div className="person">
+                                <div className="person__btns">
+                                    <MyButton onClick={() => router(`/mediainfo/detail/${media.mediaId}`)}>Информация о треке</MyButton>
+                                </div>
                             </div>
                         </div>
                     )}
