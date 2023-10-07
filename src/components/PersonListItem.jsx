@@ -9,6 +9,8 @@ const PersonListItem = (props) => {
     return (
         <div className="person">
             <div className="person__content">
+                <img src={`http://localhost:8080/${props.person.photo}`} style={{width: 100}} />
+                <br/>
                 <strong>{props.person.lastname} {props.person.firstname} {props.person.patronymic}</strong>
                 <div>
                     {props.person.info}

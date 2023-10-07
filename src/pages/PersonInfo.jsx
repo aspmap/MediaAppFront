@@ -27,6 +27,8 @@ const PersonInfo = () => {
                     <div className="person__content">
                         <h2>Информация о персоне</h2>
                         <br/>
+                        <img src={`http://localhost:8080/${person.photo}`} style={{width: 200}} />
+                        <br/>
                         <div>
                             <p><b>{person.lastname} {person.firstname} {person.patronymic}</b></p>
                             <p><b>Информация о персоне:</b> {person.info}</p>
