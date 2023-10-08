@@ -8,6 +8,9 @@ import PersonsList from "../components/PersonsList";
 import PersonAddForm from "../components/PersonAddForm";
 import {useFetching} from "../hooks/useFetching";
 import PersonService from "../API/PersonService";
+import {Button} from "@mui/material";
+import Navbar from "../components/UI/navbar/Navbar";
+import NavbarLeft from "../components/UI/navbar/NavbarLeft";
 
 const Persons = () => {
     const [persons, setPersons] = useState([])
@@ -33,6 +36,7 @@ const Persons = () => {
     }
 
     return (
+
         <div className="App">
             <MyButton style={{marginTop: 20}} onClick={() => setModal(true)}>
                 Создать запись
@@ -44,7 +48,7 @@ const Persons = () => {
             <hr style={{margin: '15px 0'}}/>
             <PersonsFilter filter={filter} setFilter={setFilter}/>
             {personError &&
-                <h1>Произошла ошибка ${personError}</h1>
+                <h3>Произошла ошибка ${personError}</h3>
             }
             {isPersonsLoading
                 ? <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}>

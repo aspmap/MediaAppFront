@@ -4,6 +4,10 @@ import {useFetching} from "../hooks/useFetching";
 import PersonService from "../API/PersonService";
 import Loader from "../components/UI/loader/Loader";
 import MyButton from "../components/UI/button/MyButton";
+import {Button, Card, Grid} from "@mui/material";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import {PlayArrow} from "@mui/icons-material";
 
 const Works = (props) => {
     const router = useNavigate();
@@ -24,24 +28,41 @@ const Works = (props) => {
         <div>
             {isWorkLoading
                 ? <Loader/>
-                : <div>
-                    <h2>Работы</h2>
-                    {works.map(work =>
-                        <div key={work.workId} style={{marginTop: 15}}>
-                            <p>
-                                <img src={`http://localhost:8080/${work.photo}`} style={{width: 100}} />
-                            </p>
-                            <p><b>Название:</b> {work.title}</p>
-                            <p><b>Оригинальное название:</b> {work.originalTitle}</p>
-                            <p><b>Дата релиза:</b> {work.releaseDate}</p>
-                            <div className="person">
-                                <div className="person__btns">
-                                    <MyButton onClick={() => router(`/mediainfo/${work.workId}`)}>Просмотр работы</MyButton>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                </div>
+                : <Grid container justifyContent='center'>
+                    <Card style={{width: 900}}>
+                        <Box p={3}>
+                            <h3 style={{textAlign: 'center'}}>
+                                Работы
+                            </h3>
+                        </Box>
+                        <Grid container direction='column'>
+                            <Box p={2}>
+                                {works.map(work =>
+                                    <div key={work.workId} style={{marginTop: 15}}>
+                                        <Card style={{
+                                            margin: '10px',
+                                            padding: '10px',
+                                            display: 'flex',
+                                            alignItems: 'center'
+                                        }}>
+                                            <div style={{marginLeft: '5px'}}><img src={`http://localhost:8080/${work.photo}`}
+                                                                                  style={{margin: '5px', padding: '5px', width: 70, height: 70}}/></div>
+
+                                            <Grid>
+                                                <div style={{marginLeft: '5px'}}>{work.title}</div>
+                                                <div style={{fontSize: 12, color: 'gray', marginLeft: '5px'}}> дата
+                                                    релиза: {work.releaseDate},
+                                                    продолжительность: {work.duration} </div>
+                                                <Button onClick={() => router(`/mediainfo/${work.workId}`)}>Просмотр
+                                                    работы</Button>
+                                            </Grid>
+                                        </Card>
+                                    </div>
+                                )}
+                            </Box>
+                        </Grid>
+                    </Card>
+                </Grid>
             }
         </div>
     );

@@ -6,17 +6,17 @@ const PersonsList = ({persons, title, remove}) => {
 
     if (!persons.length) {
         return (
-            <h1 style={{textAlign: 'center'}}>
+            <h3 style={{textAlign: 'center'}}>
                 Записи не найдены!
-            </h1>
+            </h3>
         )
     }
 
     return (
         <div>
-            <h2 style={{textAlign: 'center'}}>
+            <h3 style={{textAlign: 'center'}}>
                 {title}
-            </h2>
+            </h3>
             <TransitionGroup>
                 {persons.map((person, index) =>
                     <CSSTransition

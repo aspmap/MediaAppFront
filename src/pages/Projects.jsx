@@ -4,6 +4,8 @@ import {useNavigate, useParams} from "react-router-dom";
 import Loader from "../components/UI/loader/Loader";
 import {useFetching} from "../hooks/useFetching";
 import PersonService from "../API/PersonService";
+import {Button, Card, Grid} from "@mui/material";
+import Box from "@mui/material/Box";
 
 const Projects = (props, persons) => {
 
@@ -29,34 +31,86 @@ const Projects = (props, persons) => {
 
     return (
         <div>
-            {isProjectLoading
-                ? <Loader/>
-                : <div>
-                    <h2>Проекты</h2>
-                    {projects.map(project =>
-                        <div key={project.projectId} style={{marginTop: 15}}>
-                            <p><b>Название проекта:</b> {project.title}</p>
-                            <p><b>Оригинальное название проекта:</b> {project.originalTitle}</p>
-                            <p><b>Старт проекта:</b> {project.dateBegin}</p>
-                            <p><b>Конец проекта:</b> {project.dateEnd}</p>
-                            <p><b>Описание проекта:</b> {project.info}</p>
-                            <p><b>Страна:</b> {project.country}</p>
-                            <p><b>Веб-сайт:</b> {project.website}</p>
-                            <p><b>E-mail:</b> {project.email}</p>
-                            <p><b>Телефон:</b> {project.phone}</p>
-                            <p><b>Фото:</b> {project.photo}</p>
-                            <p><b>Логотип:</b> <img src={`http://localhost:8080/${project.logo}`} style={{width: 100}} /></p>
-                            <div className="person">
-                                <div className="person__btns">
-                                    <MyButton onClick={() => router(`/works/${project.projectId}`)}>Просмотр
-                                        работ</MyButton>
-                                </div>
-                            </div>
+            <Grid container justifyContent='center'>
+                <Card style={{width: 900}}>
+                    <Box p={3}>
+                        <h3 style={{textAlign: 'center'}}>
+                            Проекты
+                        </h3>
+                    </Box>
+                    {isProjectLoading
+                        ? <Loader/>
+                        : <div>
+                            <Grid container direction='column'>
+                                <Button onClick={() => router(`/personinfo/${person.personId}`)}>Назад</Button>
+                                <Box p={2}>
+
+                                    {projects.map(project =>
+                                        <div key={project.projectId} style={{marginTop: 15}}>
+                                            <Card style={{
+                                                margin: '10px',
+                                                padding: '10px',
+                                                display: 'flex',
+                                                alignItems: 'center'
+                                            }}>
+
+                                                <img src={`http://localhost:8080/${project.photo}`}
+                                                     style={{margin: '5px', padding: '5px', width: 200}}/>
+
+
+                                                <Grid>
+                                                    <div style={{ fontSize: 12, color: 'gray', marginLeft: '0px'}}><img src={`http://localhost:8080/${project.logo}`}
+                                                                                                                        style={{margin: '5px', padding: '5px', width: 200}}/></div>
+                                                    <div
+                                                        style={{
+                                                            fontSize: 12,
+                                                            color: 'gray',
+                                                            marginLeft: '5px'
+                                                        }}>Название проекта
+                                                    </div>
+                                                    <div
+                                                        style={{marginLeft: '5px'}}>{project.title}
+                                                    </div>
+
+
+                                                    <div style={{ fontSize: 12, color: 'gray', marginLeft: '5px'}}>Старт проекта</div>
+                                                    <div style={{marginLeft: '5px'}}>{project.dateBegin}</div>
+
+                                                    <div style={{ fontSize: 12, color: 'gray', marginLeft: '5px'}}>Конец проекта</div>
+                                                    <div style={{marginLeft: '5px'}}>{project.dateEnd}</div>
+
+                                                    <div style={{ fontSize: 12, color: 'gray', marginLeft: '5px'}}>О проекте</div>
+                                                    <div style={{marginLeft: '5px'}}>{project.info}</div>
+
+                                                    <div style={{ fontSize: 12, color: 'gray', marginLeft: '5px'}}>Страна</div>
+                                                    <div style={{marginLeft: '5px'}}>{project.country}</div>
+
+                                                    <div style={{ fontSize: 12, color: 'gray', marginLeft: '5px'}}>Веб-сайт</div>
+                                                    <div style={{marginLeft: '5px'}}>{project.website}</div>
+
+                                                    <div style={{ fontSize: 12, color: 'gray', marginLeft: '5px'}}>E-mail</div>
+                                                    <div style={{marginLeft: '5px'}}>{project.email}</div>
+
+                                                    <div style={{ fontSize: 12, color: 'gray', marginLeft: '5px'}}>Телефон</div>
+                                                    <div style={{marginLeft: '5px'}}>{project.email}</div>
+                                                </Grid>
+
+                                                        <Button onClick={() => router(`/works/${project.projectId}`)}>Просмотр
+                                                            работ</Button>
+                                            </Card>
+
+                                        </div>
+                                    )}
+
+
+                                </Box>
+                            </Grid>
                         </div>
-                    )}
-                </div>
-            }
+                    }
+                </Card>
+            </Grid>
         </div>
+
     );
 };
 

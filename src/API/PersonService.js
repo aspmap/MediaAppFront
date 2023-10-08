@@ -42,5 +42,10 @@ export default class PersonService {
         return response;
     }
 
+    static async getWorkByMediaId(id) {
+        const response = await axios.get('http://localhost:8080/api/work/media/' + id)
+        return response;
+    }
+
 
 }
